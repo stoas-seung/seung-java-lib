@@ -26,7 +26,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.LongSerializationPolicy;
 
 import seung.java.lib.arguments.SCV;
-import seung.java.lib.arguments.SCharsetE;
 import seung.java.lib.arguments.SMap;
 import seung.java.lib.arguments.SObjectTypeE;
 
@@ -87,18 +86,19 @@ public class SCommonU {
 	 * @param sCharsetE
 	 * @param src
 	 * @return
+	 * @throws UnsupportedEncodingException 
 	 */
 	public byte[] toByteArray(
 			SObjectTypeE sObjectTypeE
-			, SCharsetE sCharsetE
+			, String charset
 			, Object object
-			) {
+			) throws UnsupportedEncodingException {
 		
 		byte[] bytes = null;
 		
 		switch (sObjectTypeE) {
 			case _STRING:
-				bytes = ((String) object).getBytes(sCharsetE.getCharset());
+				bytes = ((String) object).getBytes(charset);
 				break;
 			case _HEX:
 				bytes = new BigInteger(((String) object).replaceAll("[^a-zA-Z0-9]", ""), 16).toByteArray();
@@ -117,15 +117,17 @@ public class SCommonU {
 	 * @return
 	 */
 	public String digest(String algorithm, String src) {
-		return digest(SCharsetE._UTF8, algorithm, src);
+		return digest(SCV._S_UTF8, algorithm, src);
 	}
-	public String digest(SCharsetE sCharsetE, String algorithm, String src) {
+	public String digest(String charset, String algorithm, String src) {
 		String digest = "";
 		try {
 			MessageDigest messageDigest = MessageDigest.getInstance(algorithm);
-			byte[] hash = messageDigest.digest(src.getBytes(sCharsetE.getCharset()));
+			byte[] hash = messageDigest.digest(src.getBytes(charset));
 			digest = new String(Hex.encode(hash));
 		} catch (NoSuchAlgorithmException e) {
+			logger.error(e.getMessage());
+		} catch (UnsupportedEncodingException e) {
 			logger.error(e.getMessage());
 		}
 		return digest;
