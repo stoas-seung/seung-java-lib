@@ -2,11 +2,12 @@ apply plugin: 'java'
 apply plugin: 'maven'
 
 group = 'seung.java'
+version = '18.07'
+archivesBaseName = rootProject.name + '-' + version
 
 sourceCompatibility = 1.8
 targetCompatibility = sourceCompatibility
 
-version = '18.07'
 
 repositories {
 	mavenCentral()
