@@ -81,15 +81,19 @@ public class SMap extends LinkedHashMap {
 	}
 	
 	public boolean getBoolean(String key) {
-		return Boolean.valueOf(getString(key));
+		return containsKey(key) ? Boolean.valueOf(getString(key)) : null;
 	}
 	
 	public int getInt(String key) {
-		return containsKey(key) ? Integer.parseInt(getString(key)) : 0;
+		return containsKey(key) ? Integer.parseInt(getString(key)) : null;
 	}
 	
 	public double getDouble(String key) {
-		return containsKey(key) ? Double.valueOf(getString(key)) : 0.0d;
+		return containsKey(key) ? Double.valueOf(getString(key)) : null;
+	}
+	
+	public long getLong(String key) {
+		return containsKey(key) ? Long.valueOf(getString(key)) : null;
 	}
 	
 	public SMap getSMap(String key) {

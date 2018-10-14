@@ -19,5 +19,4 @@ public class SCV {
 	public static final String _S_BRACKET_L      = "[";
 	public static final String _S_BRACKET_R      = "]";
 	
-	
 }
