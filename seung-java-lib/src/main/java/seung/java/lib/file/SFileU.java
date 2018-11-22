@@ -57,8 +57,8 @@ public class SFileU {
 		return byteArray;
 	}
 	
-	public String readFile(File file, String charsetName) throws UnsupportedEncodingException {
-		return new String(readFile(file), charsetName);
+	public String readFile(File file, String charset) throws UnsupportedEncodingException {
+		return new String(readFile(file), charset);
 	}
 	
 	public byte[] readFile(File file) {

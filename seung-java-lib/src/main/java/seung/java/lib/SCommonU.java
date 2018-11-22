@@ -33,6 +33,22 @@ public class SCommonU {
 
 	private static final Logger logger = LoggerFactory.getLogger(SCommonU.class);
 	
+	public String getString(String str, String charset, int sPoint, int length) throws Exception {
+		
+		byte[] bytes = str.getBytes(charset);
+		byte[] value = new byte[length];
+		
+		if(bytes.length < sPoint + length){
+			throw new Exception("Length of bytes is less. length : " + bytes.length + " sPoint : " + sPoint + " length : " + length);
+		}
+		
+		for(int i = 0; i < length; i++){
+			value[i] = bytes[sPoint + i];
+		}
+		
+		return new String(value, charset);
+	}
+	
 	public String repeate(int times) {
 		return new String(new char[times]).replace("\0", SCV._S_SPACE);
 	}

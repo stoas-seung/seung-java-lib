@@ -3,6 +3,7 @@ package seung.java.lib.arguments;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -11,8 +12,6 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import seung.java.lib.SCommonU;
 
 @SuppressWarnings("rawtypes")
 public class SMap extends LinkedHashMap {
@@ -86,6 +85,10 @@ public class SMap extends LinkedHashMap {
 	
 	public int getInt(String key) {
 		return containsKey(key) ? Integer.parseInt(getString(key)) : null;
+	}
+	
+	public BigInteger getBigInt(String key) {
+		return containsKey(key) ? new BigInteger(getString(key)) : null;
 	}
 	
 	public double getDouble(String key) {
