@@ -181,9 +181,9 @@ public class SFileU {
 	}
 	
 	/**
-	 * @desc extract directory path
-	 * @param path
-	 * @return
+	 * desc extract directory path
+	 * param path
+	 * return
 	 */
 	public String getDirPath(String path) {
 		return getDirPath(path, "");

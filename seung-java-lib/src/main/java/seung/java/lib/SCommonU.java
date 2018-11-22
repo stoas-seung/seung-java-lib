@@ -54,10 +54,10 @@ public class SCommonU {
 	}
 	
 	/**
-	 * @desc object to json format string
-	 * @param object
-	 * @param isPrettyPrinting
-	 * @return
+	 * desc object to json format string
+	 * param object
+	 * param isPrettyPrinting
+	 * return
 	 */
 	public String toJsonString(Object object) {
 		return toJsonString(object, false);
@@ -76,17 +76,17 @@ public class SCommonU {
 	}
 	
 	/**
-	 * @desc uuid
-	 * @return e.g. 770386e0-1fff-4860-af18-e5c75aa72e1c
+	 * desc uuid
+	 * return e.g. 770386e0-1fff-4860-af18-e5c75aa72e1c
 	 */
 	public String getUUID() {
 		return UUID.randomUUID().toString();
 	}
 	
 	/**
-	 * @desc date to string
-	 * @param pattern yyyy-MM-dd HH:mm:sss
-	 * @return
+	 * desc date to string
+	 * param pattern yyyy-MM-dd HH:mm:sss
+	 * return
 	 */
 	public String getDateString(String pattern) {
 		SimpleDateFormat sdf = new SimpleDateFormat(pattern.length() > 0 ? pattern : "yyyy-MM-dd HH:mm:sssss");
@@ -98,11 +98,11 @@ public class SCommonU {
 	
 	/**
 	 * 
-	 * @param sObjectTypeE
-	 * @param sCharsetE
-	 * @param src
-	 * @return
-	 * @throws UnsupportedEncodingException 
+	 * param sObjectTypeE
+	 * param sCharsetE
+	 * param src
+	 * return
+	 * throws UnsupportedEncodingException 
 	 */
 	public byte[] toByteArray(
 			SObjectTypeE sObjectTypeE
@@ -127,10 +127,10 @@ public class SCommonU {
 	}
 	
 	/**
-	 * @desc digest
-	 * @param algorithm
-	 * @param src
-	 * @return
+	 * desc digest
+	 * param algorithm
+	 * param src
+	 * return
 	 */
 	public String digest(String algorithm, String src) {
 		return digest(SCV._S_UTF8, algorithm, src);
@@ -205,7 +205,7 @@ public class SCommonU {
 	}
 	
 	/**
-	 * @desc get mac address
+	 * desc get mac address
 	 */
 	@SuppressWarnings("unused")
 	private String getMacAddress(InetAddress inetAddress) {
@@ -229,7 +229,7 @@ public class SCommonU {
 	}
 	
 	/**
-	 * @desc check is vm or not
+	 * desc check is vm or not
 	 */
 	@SuppressWarnings("unused")
 	private boolean isVMMac(byte[] mac) {
